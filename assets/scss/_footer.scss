@@ -5,12 +5,22 @@
 		margin: 0;
 	}
 
-	.footer-social-links {
+	.footer-right-contents {
 		text-align: right;
 
-		a {
+		.footer-privacy-policy {
 			display: inline-block;
-			padding: 0 6px;
+			text-align: right;
+		}
+
+		.footer-social-links {
+			display: inline-block;
+			text-align: right;
+
+			a {
+				display: inline-block;
+				padding: 0 6px;
+			}
 		}
 	}
 }

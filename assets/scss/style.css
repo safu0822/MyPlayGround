@@ -2253,10 +2253,18 @@ General Styles - Owlcarousel
 .footer .copyright {
   margin: 0;
 }
-.footer .footer-social-links {
+.footer .footer-right-contents {
   text-align: right;
 }
-.footer .footer-social-links a {
+.footer .footer-right-contents .footer-privacy-policy {
+  display: inline-block;
+  text-align: right;
+}
+.footer .footer-right-contents .footer-social-links {
+  display: inline-block;
+  text-align: right;
+}
+.footer .footer-right-contents .footer-social-links a {
   display: inline-block;
   padding: 0 6px;
 }
@@ -3607,6 +3615,9 @@ Google map
     margin-bottom: 40px !important;
   }
   .footer {
+    text-align: center;
+  }
+  .footer .footer-right-contents {
     text-align: center;
   }
   .copyright,

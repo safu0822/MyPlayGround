@@ -67,7 +67,10 @@
       <div class="col-sm-6">
         <p class="copyright font-alt">&copy; 2024&nbsp;<a href="/">So Suzuki</a>, All Rights Reserved</p>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-6 footer-right-contents">
+        <div class="footer-privacy-policy">
+          <a href="/privacy-policy"><span>プライバシーポリシー</span></a>
+        </div>
         <div class="footer-social-links">
           <a class="link-icon" href="https://www.instagram.com/safu0822_underwater/"><i class="fa fa-instagram"></i>
           </a>
