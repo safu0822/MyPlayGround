@@ -301,12 +301,30 @@
                 font-size: 20px;
             }
 
+            h2.wp-block-heading {
+                font-size: 18px;
+            }
+
+            h3.wp-block-heading {
+                font-size: 15px;
+            }
+
             h3 {
                 font-size: 18px;
             }
 
             p {
                 font-size: 15px;
+            }
+
+            .toc_wrapper {
+                .toc_title_h2 {
+                    font-size: 15px;
+                }
+
+                .toc_title_h3 {
+                    font-size: 12px;
+                }
             }
 
             .balloon-left {

@@ -1298,6 +1298,9 @@ blockquote {
   font-size: 30px;
   line-height: 1.5;
 }
+.blog-contents .blog-main span {
+  font-size: 15px;
+}
 .blog-contents .blog-main h2.wp-block-heading {
   padding: 5px 5px;
   border-left: 5px solid #2589d0;
@@ -1319,12 +1322,12 @@ blockquote {
 .blog-contents .blog-main p {
   font-size: 18px;
 }
-.blog-contents .blog-main p.underline {
-  display: inline-block;
+.blog-contents .blog-main span.underline {
   background-image: linear-gradient(transparent 50%, #ff6 50%);
   padding-bottom: 0.25rem;
   font-weight: bold;
   margin-bottom: 30px;
+  font-size: 15px;
 }
 .blog-contents .blog-main .balloon-left {
   align-items: center;
@@ -3638,11 +3641,23 @@ Google map
     font-weight: 400;
     font-size: 20px;
   }
+  .blog-contents .blog-main h2.wp-block-heading {
+    font-size: 18px;
+  }
+  .blog-contents .blog-main h3.wp-block-heading {
+    font-size: 15px;
+  }
   .blog-contents .blog-main h3 {
     font-size: 18px;
   }
   .blog-contents .blog-main p {
     font-size: 15px;
+  }
+  .blog-contents .blog-main .toc_wrapper .toc_title_h2 {
+    font-size: 15px;
+  }
+  .blog-contents .blog-main .toc_wrapper .toc_title_h3 {
+    font-size: 12px;
   }
   .blog-contents .blog-main .balloon-left {
     max-width: 200px;
