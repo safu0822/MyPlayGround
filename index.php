@@ -33,7 +33,7 @@
     <section class="home-section home-full-height bg-dark-30" id="home"
       data-background="<?php echo get_template_directory_uri(); ?>/assets/images/backgrounds/DSC07814.jpg">
       <div id="video-player"
-        data-property="{videoURL:'https://youtu.be/PqDzIh3V9yY', containment:'.home-section', startAt:1, mute:false, autoPlay:true, loop:true, showControls:false, showYTLogo:false, vol:25}">
+        data-property="{videoURL:'https://youtu.be/vQrnu5JBIVI', containment:'.home-section', startAt:0, fadeOnStartTime: 1000, mute:false, autoPlay:true, loop:true, showControls:false, showYTLogo:false, delayAtStart: 2000, vol:15}">
       </div>
       <div class="video-controls-box">
         <div class="container">
