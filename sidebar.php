@@ -2,8 +2,10 @@
   <div class="widget">
     <h5 class="widget-title ">Check & Follow　👇👇
     </h5>
-    <a href="https://www.instagram.com/safu0822_underwater/"><img
+    <a href="https://www.instagram.com/hatatate_/" target="_blank"><img
         src="<?php echo get_template_directory_uri(); ?>/assets/images/qrcode/instagramQR.JPG" alt="インスタQRコード"></a>
+    <a href="https://lin.ee/N1xokcV" target="_blank"><img
+        src="<?php echo get_template_directory_uri(); ?>/assets/images/qrcode/LINEQR.png" alt="LINEQRコード"></a>
   </div>
   <div class="widget">
     <h5 class="widget-title ">Search</h5>

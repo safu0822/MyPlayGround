@@ -1,0 +1,122 @@
+/* コンテナスタイル */
+.company-history {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+/* タイムラインの基本スタイル */
+.timeline {
+  position: relative;
+  list-style: none;
+  padding: 0;
+}
+
+#timeline.module {
+  padding: 40px 0px;
+}
+
+/* 縦線 */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 4px;
+  background: #e0e0e0;
+  z-index: 1;
+}
+
+/* タイムラインアイテム */
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  padding-left: 60px;
+}
+
+/* 最後のアイテムの下マージンを消す */
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 丸いノード */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8px;
+  /* 縦線の中央に配置 */
+  width: 28px;
+  /* 丸の直径 */
+  height: 28px;
+  /* 丸の直径 */
+  border-radius: 50%;
+  background: #4E7FD9;
+  border: 4px solid #fff;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 日付スタイル */
+.timeline-date {
+  position: relative;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* コンテンツボックス */
+.timeline-content {
+  position: relative;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* コンテンツボックスの矢印 */
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #fff;
+  z-index: 3;
+}
+
+/* コンテンツ内の見出し */
+.timeline-content h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #3DBFDD;
+}
+
+.timeline-content p {
+  color: #333;
+  font-size: 15px;
+}
+
+/* コンテンツ内の最後の要素のマージンを消す */
+.timeline-content *:last-child {
+  margin-bottom: 0;
+}
+
+/* コンテンツ内の画像 */
+.timeline-content img {
+  max-width: 100%;
+  border-radius: 4px;
+  margin: 10px 0;
+}

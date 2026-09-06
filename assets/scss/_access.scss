@@ -1,0 +1,91 @@
+#access {
+
+  .access-title {
+    color: #e6af4b;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  padding: 50px 0px;
+
+}
+
+#question {
+  .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .qa-1 {
+    max-width: 80%;
+    min-width: 80%;
+    margin-bottom: 7px;
+    border: 1px solid #4a89bf;
+    border-radius: 5px;
+  }
+
+  .qa-1 summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1em 2em 1em 3em;
+    color: #333333;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .qa-1 summary::before,
+  .qa-1 p::before {
+    position: absolute;
+    left: 1em;
+    font-weight: 600;
+    font-size: 1.3em;
+  }
+
+  .qa-1 summary::before {
+    color: #75bbff;
+    content: "Q";
+  }
+
+  .qa-1 summary::after {
+    transform: translateY(-25%) rotate(45deg);
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    border-bottom: 3px solid #333333b3;
+    border-right: 3px solid #333333b3;
+    content: '';
+    transition: transform .5s;
+  }
+
+  .qa-1[open] summary::after {
+    transform: rotate(225deg);
+  }
+
+  .qa-1 p {
+    position: relative;
+    transform: translateY(-10px);
+    opacity: 0;
+    margin: 0;
+    padding: .3em 3em 1.5em;
+    color: #333;
+    transition: transform .5s, opacity .5s;
+    font-size: 15px;
+  }
+
+  .qa-1[open] p {
+    transform: none;
+    opacity: 1;
+  }
+
+  .qa-1 p::before {
+    color: #ff8d8d;
+    line-height: 1.2;
+    content: "A";
+  }
+}

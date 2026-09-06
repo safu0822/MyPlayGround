@@ -67,7 +67,8 @@ Template Name: photography
           </div>
         </div>
         <div class="blog-single-backall">
-          <div class="text-center"><a class="btn btn-border-d mt-100" href="/blog">Back to All Blog</a>
+          <div class="text-center"><a class="btn btn-border-d mt-100"
+              href="<?php echo esc_url( home_url( '/blog' ) ); ?>">Back to All Blog</a>
           </div>
         </div>
     </div>

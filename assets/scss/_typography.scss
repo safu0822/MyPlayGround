@@ -1,3 +1,13 @@
+@font-face {
+	font-family: 'armed-lemon';
+	src: url('../fonts/ArmedLemon/ArmedLemon.TTF') format('truetype');
+}
+
+@font-face {
+	font-family: 'yosugara';
+	src: url('../fonts/yosugara/yosugaraver1_2.ttf') format('truetype');
+}
+
 a {
 	color: #111;
 }
@@ -26,6 +36,7 @@ h5,
 h6 {
 	line-height: 1.4;
 	font-weight: 400;
+	letter-spacing: 4px;
 }
 
 p,
@@ -33,6 +44,7 @@ ol,
 ul,
 blockquote {
 	margin: 0 0 20px;
+	letter-spacing: 2px;
 }
 
 blockquote {
@@ -43,7 +55,7 @@ blockquote {
 }
 
 .font-alt {
-	font-family: "Roboto Condensed", sans-serif;
+	font-family: "Sawarabi Gothic", "Noto Sans JP", "Roboto Condensed", sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
@@ -51,6 +63,38 @@ blockquote {
 .font-serif {
 	font-family: Volkhov, "Times New Roman", sans-serif;
 	font-style: italic;
+}
+
+.font-slackside-one {
+	font-family: "Sawarabi Gothic", "yosugara", "armed-lemon", cursive;
+	font-style: normal;
+}
+
+.font-yosugara {
+	font-family: "Sawarabi Gothic", "yosugara", "armed-lemon", cursive;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.font-yosugara-medium {
+	font-family: "Sawarabi Gothic", "yosugara", "armed-lemon", cursive;
+	font-style: normal;
+	font-size: 24px;
+	font-weight: 400;
+}
+
+.font-yosugara-large {
+	font-family: "Sawarabi Gothic", "yosugara", "armed-lemon", cursive;
+	font-style: normal;
+	font-size: 40px;
+	font-weight: 400;
+}
+
+.font-armed-lemon {
+	font-family: "armed-lemon", "yosugara", cursive;
+	font-weight: 400;
+	font-style: normal;
 }
 
 .large-text {
@@ -76,6 +120,20 @@ blockquote {
 	font-size: 16px;
 	color: #111;
 	margin-bottom: 70px;
+}
+
+.module-title-simple {
+	position: relative;
+	letter-spacing: 4px;
+	text-align: center;
+	font-weight: 400;
+	color: #111;
+}
+
+.module-subtitle-simple {
+	text-align: center;
+	margin-bottom: 70px;
+	color: #111;
 }
 
 .module-icon {
@@ -693,4 +751,20 @@ blockquote {
 			}
 		}
 	}
+}
+
+.color-blue {
+	color: #3DBFDD;
+}
+
+.color-black {
+	color: #111;
+}
+
+.color-white {
+	color: #fff;
+}
+
+.color-pencil {
+	box-shadow: 0px -6px 5px -5px #92FCFC inset, 0px 8px 4px -8px #92FCFC;
 }

@@ -28,8 +28,7 @@ Template Name: NewsList
       </section>
       <section class="module">
         <div class="container">
-          <?php get_sidebar(); ?>
-          <div class="col-sm-8 col-sm-offset-1">
+          <div class="col-sm-8">
             <?php if ( have_posts() ) : ?>
             <?php while ( have_posts() ) : the_post(); ?>
             <?php
@@ -60,16 +59,19 @@ Template Name: NewsList
             <?php else : ?>
             <p>該当の投稿はありません。</p>
             <?php endif; ?>
-            <div class="pagination font-alt">
-              <?php
+            <div class="pagenation-content">
+              <div class="pagination font-alt">
+                <?php
                   echo paginate_links(array(
                       'total' => $wp_query->max_num_pages,
                       'prev_text' => '<i class="fa fa-angle-left"></i>',
                       'next_text' => '<i class="fa fa-angle-right"></i>',
                   ));
                   ?>
+              </div>
             </div>
           </div>
+          <?php get_sidebar(); ?>
         </div>
     </div>
     </section>

@@ -36,14 +36,16 @@
 	font-weight: 400;
 	font-size: 22px;
 	color: #fff;
+	padding: 5px 0px;
+
 }
 
-.navbar-custom .nav li > a {
+.navbar-custom .nav li>a {
 	position: relative;
 	color: rgba(255, 255, 255, .7);
 }
 
-.navbar-custom .dropdown-menu > li > a {
+.navbar-custom .dropdown-menu>li>a {
 	border-bottom: 1px solid rgba(73, 71, 71, 0.15) !important;
 	padding: 11px 15px;
 	letter-spacing: 2px;
@@ -65,18 +67,18 @@
 	left: auto;
 }
 
-.navbar-custom .nav > li > a:focus,
-.navbar-custom .nav > li > a:hover,
-.navbar-custom .nav .open > a,
-.navbar-custom .nav .open > a:focus,
-.navbar-custom .nav .open > a:hover,
-.navbar-custom .dropdown-menu > li > a:focus,
-.navbar-custom .dropdown-menu > li > a:hover {
+.navbar-custom .nav>li>a:focus,
+.navbar-custom .nav>li>a:hover,
+.navbar-custom .nav .open>a,
+.navbar-custom .nav .open>a:focus,
+.navbar-custom .nav .open>a:hover,
+.navbar-custom .dropdown-menu>li>a:focus,
+.navbar-custom .dropdown-menu>li>a:hover {
 	background: none;
 	color: #fff;
 }
 
-.navbar-custom .dropdown-menu > li > a:hover {
+.navbar-custom .dropdown-menu>li>a:hover {
 	background: rgba(255, 255, 255, .1) !important;
 }
 

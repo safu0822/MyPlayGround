@@ -1,14 +1,10 @@
-<div class="module-small bg-dark">
+<div class="module-small bg-blue">
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
         <div class="widget">
           <h5 class="widget-title font-alt">About</h5>
-          <p>My information can also be found on the following social networking sites But don't look too much because
-            it's embarrassing!</p>
-          <p>Instagram<a href="https://www.instagram.com/safu0822_underwater/">：@safu0822_underwater</a></p>
-          <p>facebook<a href="https://www.facebook.com/profile.php?id=100025317318258">：@safu0822</a></p>
-          <p>github<a href="https://github.com/safu0822">：safu0822</a></p>
+          <p>Instagram<a href="https://www.instagram.com/hatatate_/">：@hatatate_</a></p>
         </div>
       </div>
       <div class="col-sm-4">
@@ -60,26 +56,18 @@
     </div>
   </div>
 </div>
-<hr class="divider-d">
-<footer class="footer bg-dark">
+<footer class="footer bg-blue">
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <p class="copyright font-alt">&copy; 2024&nbsp;<a href="/">So Suzuki</a>, All Rights Reserved</p>
+        <p class="copyright font-alt">&copy; 2025&nbsp;<a href="/">HATATATE Marine Service</a>, All Rights Reserved</p>
       </div>
       <div class="col-sm-6 footer-right-contents">
         <div class="footer-privacy-policy">
           <a href="/privacy-policy"><span>プライバシーポリシー</span></a>
         </div>
         <div class="footer-social-links">
-          <a class="link-icon" href="https://www.instagram.com/safu0822_underwater/"><i class="fa fa-instagram"></i>
-          </a>
-          <a class="link-icon" href="https://www.facebook.com/profile.php?id=100025317318258"><i
-              class="fa fa-facebook"></i>
-          </a>
-          <a class="link-icon" href="https://www.linkedin.com/in/so-suzuki-46697a257/"><i class="fa fa-linkedin"></i>
-          </a>
-          <a class="link-icon" href="https://github.com/safu0822"><i class="fa fa-github"></i>
+          <a class="link-icon" href="https://www.instagram.com/hatatate_/"><i class="fa fa-instagram"></i>
           </a>
         </div>
       </div>

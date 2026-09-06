@@ -45,11 +45,6 @@ function twpp_enqueue_scripts() {
   );
 
   wp_enqueue_script( 
-    'smoothscroll',
-    get_template_directory_uri() . '/assets/lib/smoothscroll.js'
-  );
-
-  wp_enqueue_script( 
     'magnific-popup',
     get_template_directory_uri() . '/assets/lib/magnific-popup/dist/jquery.magnific-popup.js'
   );
@@ -57,6 +52,36 @@ function twpp_enqueue_scripts() {
   wp_enqueue_script( 
     'simple-text-rotator',
     get_template_directory_uri() . '/assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"'
+  );
+
+  wp_enqueue_script(
+    'aos-script', 
+    get_template_directory_uri() . '/assets/lib/aos.js/dist/aos.js'
+  );
+
+  wp_enqueue_script( 
+    'bxslider', 
+    get_template_directory_uri() . '/assets/lib/bxslider/jquery.bxslider.min.js'
+  );
+
+  wp_enqueue_script( 
+    'easing', 
+    get_template_directory_uri() . '/assets/lib/bxslider/jquery.easing.1.3.js'
+  );
+
+  wp_enqueue_script(
+    'smoothscroll', 
+    get_template_directory_uri() . '/assets/lib/smoothscroll.js'
+  );
+
+  wp_enqueue_script(
+    'swiper', 
+    get_template_directory_uri() . '/assets/js/swiper.js'
+  );
+
+  wp_enqueue_script(
+    'swiper-custom', 
+    get_template_directory_uri() . '/assets/lib/swiper/swiper-bundle.min.js'
   );
 
   wp_enqueue_script( 
@@ -73,42 +98,6 @@ function twpp_enqueue_scripts() {
 
 add_action('init', function(){
     add_theme_support('post-thumbnails');
-});
-
-add_action( 'init', function() {
-  register_post_type( 'photography', [
-    'label' => '写真管理',
-    'public' => true,
-    'menu_position' => 10,
-    'menu_icon' => 'dashicon-store',
-    'supports' => ['title','editor','thumbnail','custom-fields','excerpt','author','trackbacks','comments','revisions','page-attributes'],
-    'has_archive' => true,
-    'show_in_rest' => true
-  ]);
-
-  register_taxonomy( 'genre',  'photography', [
-    'label' => '写真カテゴリ',
-    'hierarchical' => true,
-    'show_in_rest' => true
-  ]);
-});
-
-add_action( 'init', function() {
-  register_post_type( 'works', [
-    'label' => 'ポートフォリオワーク',
-    'public' => true,
-    'menu_position' => 10,
-    'menu_icon' => 'dashicon-store',
-    'supports' => ['title','editor','thumbnail','custom-fields','excerpt','author','trackbacks','comments','revisions','page-attributes'],
-    'has_archive' => true,
-    'show_in_rest' => true
-  ]);
-
-  register_taxonomy( 'work_category',  'works', [
-    'label' => 'ワークカテゴリ',
-    'hierarchical' => true,
-    'show_in_rest' => true
-  ]);
 });
 
 add_action( 'init', function() {
@@ -135,9 +124,70 @@ add_action( 'init', function() {
   ]);
 });
 
+add_action( 'init', function() {
+  register_post_type( 'news', [
+    'label' => 'お知らせ投稿',
+    'public' => true,
+    'menu_position' => 10,
+    'menu_icon' => 'dashicon-store',
+    'supports' => ['title','editor','thumbnail','custom-fields','excerpt','author','trackbacks','comments','revisions','page-attributes'],
+    'has_archive' => true,
+    'show_in_rest' => true
+  ]);
+});
+
+add_action( 'init', function() {
+  register_post_type( 'activity', [
+    'label' => 'アクティビティ',
+    'public' => true,
+    'menu_position' => 10,
+    'menu_icon' => 'dashicon-store',
+    'supports' => ['title','editor','thumbnail','custom-fields','excerpt','author','trackbacks','comments','revisions','page-attributes'],
+    'has_archive' => true,
+    'show_in_rest' => true
+  ]);
+
+  register_taxonomy( 'activity_category',  'activity', [
+    'label' => 'アクティビティカテゴリ',
+    'hierarchical' => true,
+    'show_in_rest' => true
+  ]);
+});
+
+add_action( 'init', function() {
+  register_post_type( 'pricelist', [
+    'label' => '料金一覧',
+    'public' => true,
+    'menu_position' => 10,
+    'menu_icon' => 'dashicon-store',
+    'supports' => ['title','editor','thumbnail','custom-fields','excerpt','author','trackbacks','comments','revisions','page-attributes'],
+    'has_archive' => true,
+    'show_in_rest' => true,
+    'rewrite' => ['slug' => 'pricelist', 'with_front' => true],
+  ]);
+
+  register_taxonomy( 'pricelist_category',  'pricelist', [
+    'label' => '料金カテゴリ',
+    'hierarchical' => true,
+    'show_in_rest' => true
+  ]);
+});
+
 function get_custom_post_excerpt($post_id) {
   $post = get_post($post_id);
   $excerpt = wp_trim_words($post->post_content, 100, '...');
+  return $excerpt;
+}
+
+function get_custom_post_excerpt_responsive($post_id) {
+  $post = get_post($post_id);
+  $excerpt = wp_trim_words($post->post_content, 50, '...');
+  return $excerpt;
+}
+
+function get_custom_post_title_excerpt($post_id) {
+  $post = get_post($post_id);
+  $excerpt = wp_trim_words($post->post_title, 13, '...');
   return $excerpt;
 }
 
@@ -152,7 +202,9 @@ function enqueue_custom_scripts() {
     wp_enqueue_script( 'create-table-of-contents', get_template_directory_uri() . '/assets/js/createTableOfContents.js', array(), null, true ); 
     wp_enqueue_script( 'create-table-of-side-contents', get_template_directory_uri() . '/assets/js/createTableOfSideContents.js', array(), null, true ); 
   } 
-} 
+}
+
+add_action( 'wp_enqueue_scripts', 'twpp_enqueue_scripts', 'get_custom_post_excerpt', 'get_custom_post_title_excerpt', 'get_custom_post_excerpt_responsive');
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
@@ -161,5 +213,3 @@ add_action('pre_get_posts', 'custom_posts_per_page');
 add_action( 'widgets_init', function(){
   register_sidebar();
 } );
-
-add_action( 'wp_enqueue_scripts', 'twpp_enqueue_scripts', 'get_custom_post_excerpt' );

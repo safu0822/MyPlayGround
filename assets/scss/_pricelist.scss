@@ -1,0 +1,164 @@
+/* -------------------------------------------------------------------
+   Price List Archive
+------------------------------------------------------------------- */
+
+
+#pricelist.pricelist-section {
+  padding: 60px 0;
+  background: #fff;
+}
+
+/* 横に広いコンテナ（Bootstrap の .container 1170px より大きく） */
+.pricelist-container {
+  width: 95%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* 各アクティビティの料金ブロック */
+.pricelist-item {
+  margin-bottom: 60px;
+  padding: 40px;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.pricelist-item-title {
+  color: #4E7FD9;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pricelist-item-thumb {
+  text-align: center;
+  margin-bottom: 20px;
+
+  img {
+    max-height: 200px;
+    width: auto;
+    border-radius: 4px;
+  }
+}
+
+/* テーブルを縦に積む */
+.pricelist-tables {
+  display: block;
+}
+
+.pricelist-table-block {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.pricelist-table-caption {
+  background: #4E7FD9;
+  color: #fff;
+  display: inline-block;
+  padding: 6px 15px;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+/* テーブルスタイル（_equipments.scss の配色を踏襲） */
+.pricelist-table-block .table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pricelist-table-block .table-responsive table {
+  border-spacing: 0;
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-size: 14px;
+  color: black;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.pricelist-table-block .table-responsive table th {
+  color: #fff;
+  padding: 10px 20px;
+  background: #4E7FD9;
+  font-weight: normal;
+  border-left: 1px solid #258;
+  border-top: 1px solid #258;
+  border-bottom: 1px solid #258;
+  line-height: 120%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.pricelist-table-block .table-responsive table tr {
+  background: #fff;
+}
+
+.pricelist-table-block .table-responsive table tr:nth-child(2n+1) {
+  background: #f1f6fc;
+}
+
+.pricelist-table-block .table-responsive table tr td {
+  padding: 10px 20px;
+  border-bottom: 1px solid #4E7FD9;
+  border-left: 1px solid #4E7FD9;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.pricelist-table-block .table-responsive table tr td:last-child {
+  border-right: 1px solid #4E7FD9;
+}
+
+/* テーブル下の備考 */
+.pricelist-note {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 160%;
+  padding: 15px 20px;
+  background: #f2f2f2;
+
+  a {
+    color: #4E7FD9;
+  }
+}
+
+/* --- レスポンシブ --- */
+
+/* タブレット */
+@media (max-width: 1024px) {
+  .pricelist-table-block .table-responsive table {
+    table-layout: auto;
+    width: auto;
+    min-width: 100%;
+  }
+}
+
+/* スマホ */
+@media (max-width: 767px) {
+  .pricelist-container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .pricelist-item {
+    padding: 20px 10px;
+  }
+
+  .pricelist-table-block .table-responsive table {
+    font-size: 12px;
+  }
+
+  .pricelist-table-block .table-responsive table th {
+    padding: 8px 10px;
+  }
+
+  .pricelist-table-block .table-responsive table tr td {
+    padding: 8px 10px;
+  }
+
+  .pricelist-note {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+}

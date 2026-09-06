@@ -1,0 +1,222 @@
+/* -------------------------------------------------------------------
+General Styles - Activity
+------------------------------------------------------------------- */
+:root {
+  --easing: cubic-bezier(.2, 1, .2, 1);
+  --transition: .8s var(--easing);
+  --color-base: #f8f8f8;
+  --color-gray: #ddd;
+  --color-theme: #f5695f;
+  --color-theme-darken: #f12617;
+  --box-shadow: .8rem .8rem 1.2rem rgba(0, 0, 0, .05), -.8rem -.8rem 1.2rem #fff;
+  --box-shadow-hover: 1rem 1rem 1.5rem rgba(0, 0, 0, .08), -1rem -1rem 1.5rem #fff;
+  --box-shadow-inset: inset .8rem .8rem 1.2rem rgba(0, 0, 0, .05), inset -.8rem -.8rem 1.2rem #fff;
+  --box-shadow-dark: .8rem .8rem 1.2rem rgba(0, 0, 0, .1), -.8rem -.8rem 1.2rem rgba(#fff, .2);
+}
+
+.excerpt-pc {
+  display: block;
+}
+
+.excerpt-sp {
+  display: none;
+}
+
+.l-inner {
+  position: relative;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10rem;
+}
+
+.l-section {
+  border-top: 1px solid #eee;
+}
+
+.l-section .l-inner {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+[class*=swiper]:focus {
+  outline: none;
+}
+
+.slide-media,
+.thumb-media {
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-media img,
+.thumb-media img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.swiper-slide {
+  text-decoration: none;
+  color: #333;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: grid;
+  place-content: center;
+  width: 6.4rem;
+  height: 6.4rem;
+  cursor: pointer;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.swiper-button-prev::before,
+.swiper-button-next::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  border-radius: 50%;
+  -webkit-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  width: 1.2rem;
+  height: 1.2rem;
+  content: "";
+  border: solid var(--color-gray);
+  border-width: 3px 3px 0 0;
+}
+
+.swiper-button-prev::after {
+  margin-left: 0.4rem;
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.swiper-button-next::after {
+  margin-right: 0.4rem;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.swiper-button-disabled {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.card05 {
+  overflow: hidden;
+}
+
+.card05 .swiper {
+  overflow: visible;
+}
+
+.card05 .swiper-wrapper {
+  -webkit-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+}
+
+.card05 .swiper-slide {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.card05 .slide {
+  overflow: hidden;
+  width: 36rem;
+  border-radius: 4px;
+  -webkit-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
+}
+
+.card05 .slide-media {
+  padding-top: 62.5%;
+}
+
+.card05 .slide-media img {
+  height: calc(100% + 16px);
+  -webkit-transform: translateY(-16px);
+  transform: translateY(-16px);
+}
+
+.card05 .slide-content {
+  padding: 3.2rem;
+  min-height: 310.36px;
+}
+
+.card05 .slide-date {
+  font-size: 1.2rem;
+  line-height: 1;
+  display: block;
+  color: var(--color-theme);
+}
+
+.card05 {
+  .slide-title {
+    font-weight: bold;
+    color: #3DBFDD;
+    line-height: 1.6;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 3.2em;
+    margin: 0;
+  }
+
+  .slide-price {
+    font-weight: bold;
+    color: #32A067;
+  }
+}
+
+.activity-liner {
+
+  .module-title,
+  .module-subtitle,
+  .content-box-title {
+    color: #fff;
+  }
+}
+
+.activity-liner.bg-dark-60:before {
+  position: absolute;
+  background: rgba(170, 170, 170, 0.5);
+  content: " ";
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+#explain {
+  padding: 70px 0;
+
+  .module-subtitle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+  }
+
+  a {
+    color: #fff;
+  }
+}
+
+#equipments.activity-policy {
+  padding: 10px 0px;
+}

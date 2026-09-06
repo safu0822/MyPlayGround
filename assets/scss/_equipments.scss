@@ -1,0 +1,360 @@
+/* equipments section — Chrome/Safari 両対応、背景はセクション内だけに表示 */
+#equipments {
+  width: 100vw;
+  min-width: 100%;
+  height: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  box-sizing: border-box;
+  background: white;
+  position: relative;
+  /* 背景ラッパの基準 */
+  overflow: hidden;
+  /* セクション外にはみ出さない */
+  padding: 60px 0px;
+  z-index: auto;
+  /* 不要なスタッキングコンテキストを削除 */
+  isolation: isolate;
+  /* スタッキングコンテキストを独立化 */
+}
+
+/* 背景ラッパ（セクション内に収める） */
+#equipments .video-background {
+  display: block;
+  position: absolute;
+  /* セクションに収める */
+  inset: 0;
+  /* top/left/right/bottom: 0 */
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /* コンテンツより下 */
+  overflow: hidden;
+  /* はみ出しを切る */
+  contain: layout paint;
+  /* レイアウトの封じ込めを強化 */
+  pointer-events: none;
+  /* 操作を邪魔しない */
+}
+
+/* 背景 video */
+#equipments .video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 背景ビデオ本体（absolute のみで管理） */
+#equipments .video-background .fixed-bg {
+  position: absolute;
+  /* fixed ではなく absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* コンテナいっぱいに */
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  visibility: hidden;
+  /* デフォルトは非表示。JSで有効化 */
+  opacity: 0;
+  transition: opacity 300ms ease, visibility 0s linear 300ms;
+}
+
+/* セクション表示時に有効化するクラス */
+#equipments .video-background .fixed-bg.is-active {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+/* セクション内の前景コンテンツを前面に */
+#equipments .row,
+#equipments .discBox {
+  position: relative;
+  z-index: 10;
+  /* ビデオより確実に前面に配置 */
+}
+
+/* タイトル系 */
+#equipments h2 {
+  display: block;
+  text-align: center;
+  padding: 30px 0;
+  margin: 0;
+  color: #333;
+  padding-top: 0;
+}
+
+#equipments h3 {
+  display: block;
+  text-align: center;
+  padding: 30px 0;
+  margin: 0;
+  color: #333;
+  padding-top: 0;
+}
+
+#equipments h4 {
+  font-size: 30px;
+  line-height: 30px;
+  display: block;
+  background: rgba(0, 0, 0, 0.47);
+  color: white;
+  padding: 6px 30px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+#equipments h4 span {
+  padding: 15px;
+  background: #4E7FD9;
+  color: white;
+  margin-right: 20px;
+  line-height: 0;
+}
+
+/* 段落 */
+#equipments p {
+  width: 100%;
+  margin: 0 auto 50px;
+  font-size: 18px;
+  color: black;
+  text-align: center;
+  line-height: 36px;
+}
+
+/* 前景コンテンツは一律前面に */
+#equipments>*:not(.video-background) {
+  position: relative;
+  z-index: 10;
+  /* ビデオより確実に前面に配置 */
+}
+
+/* 他テンプレートパーツと被らないよう、他セクションに影響を与えない */
+#equipments~* {
+  position: relative;
+  z-index: auto;
+}
+
+/* discBox */
+#equipments .discBox {
+  position: relative;
+  z-index: 10;
+  /* ビデオより確実に前面に配置 */
+  width: 100%;
+  padding: 0 60px;
+  box-sizing: border-box;
+  height: auto;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* bx-wrapper 内の画像サイズ調整 */
+#equipments .discBox .bx-wrapper .bx-viewport ul li img {
+  height: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* bx-pager */
+#equipments .discBox .bx-pager {
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  unicode-bidi: isolate;
+  width: 100%;
+  display: flex;
+  padding-inline-start: 0;
+  justify-content: center;
+}
+
+#equipments .discBox .bx-pager li {
+  display: list-item;
+  unicode-bidi: isolate;
+  list-style: none;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#equipments .discBox .bx-pager li a {
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#equipments .discBox .bx-pager li a img {
+  width: 155.125px;
+  height: 98.211px;
+  opacity: 0.4;
+  border: 1px solid #4E7FD9;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+#equipments .discBox .bx-pager li a:hover img,
+#equipments .discBox .bx-pager li a.active img {
+  opacity: 1;
+}
+
+/* discTxt */
+#equipments .discBox .discTxt {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: stretch;
+  padding: 60px 0;
+}
+
+#equipments .discBox .discTxt dl {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  unicode-bidi: isolate;
+  height: auto;
+  width: 49%;
+}
+
+#equipments .discBox .discTxt dl dt {
+  height: auto;
+  background: #4E7FD9;
+  color: white;
+  display: inline-block;
+  padding: 6px 15px;
+}
+
+#equipments .discBox .discTxt dl dd {
+  display: block;
+  margin-inline-start: 40px;
+  unicode-bidi: isolate;
+  margin: 0;
+  margin-bottom: 60px;
+  font-size: 14px;
+  padding: 30px;
+  background: #f2f2f2;
+  line-height: 160%;
+  min-height: 150px;
+
+  a {
+    color: #4E7FD9;
+  }
+}
+
+/* テーブル（従来の全幅設定：ラップなしのテーブル用の基本スタイル） */
+#equipments .discBox .discTxt dl dd table {
+  border-spacing: 0;
+  font-size: 14px;
+  width: 100%;
+}
+
+#equipments .discBox .discTxt dl dd table tr {
+  background: #fff;
+}
+
+#equipments .discBox .discTxt dl dd table tr td {
+  padding: 8px 15px;
+  border-bottom: 1px solid #4E7FD9;
+  border-left: 1px solid #4E7FD9;
+  text-align: center;
+}
+
+#equipments .discBox .discTxt dl dd table tr td .pcnon {
+  display: none;
+}
+
+#equipments .discBox .discTxt dl dd table tr td:last-child {
+  border-right: 1px solid #4E7FD9;
+}
+
+#equipments .discBox .discTxt dl dd table tr:nth-child(2n+1) {
+  background: #f1f6fc;
+}
+
+#equipments .discBox .discTxt dl dd table th {
+  color: #fff;
+  padding: 8px 15px;
+  background: #4E7FD9;
+  font-weight: normal;
+  border-left: 1px solid #258;
+  border-top: 1px solid #258;
+  border-bottom: 1px solid #258;
+  line-height: 120%;
+  text-align: center;
+}
+
+/* reset dl/dt/dd margins */
+#equipments .discBox .discTxt dl,
+#equipments .discBox .discTxt dt,
+#equipments .discBox .discTxt dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- ここからレスポンシブ横スクロール対応（table-responsive ラッパ使用） --- */
+
+/* ラッパ：横スクロール許可＋慣性スクロール */
+#equipments .discBox .discTxt dl dd .table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 固定基準幅＋固定レイアウト */
+#equipments .discBox .discTxt dl dd .table-responsive table {
+  border-spacing: 0;
+  font-size: 14px;
+  min-width: 595.125px;
+  /* 基準幅 */
+  table-layout: fixed;
+  /* 列幅固定 */
+}
+
+/* 列幅を 595.125px の 1/4 に固定（パディング込みで管理） */
+#equipments .discBox .discTxt dl dd .table-responsive table th,
+#equipments .discBox .discTxt dl dd .table-responsive table td {
+  width: calc(595.125px / 4);
+  box-sizing: border-box;
+  padding: 8px 15px;
+  text-align: center;
+  word-break: break-word;
+  /* 長文対策 */
+}
+
+/* 既存の装飾を維持 */
+#equipments .discBox .discTxt dl dd .table-responsive table tr {
+  background: #fff;
+}
+
+#equipments .discBox .discTxt dl dd .table-responsive table tr:nth-child(2n+1) {
+  background: #f1f6fc;
+}
+
+#equipments .discBox .discTxt dl dd .table-responsive table tr td {
+  border-bottom: 1px solid #4E7FD9;
+  border-left: 1px solid #4E7FD9;
+}
+
+#equipments .discBox .discTxt dl dd .table-responsive table tr td:last-child {
+  border-right: 1px solid #4E7FD9;
+}
+
+#equipments .discBox .discTxt dl dd .table-responsive table th {
+  color: #fff;
+  background: #4E7FD9;
+  font-weight: normal;
+  border-left: 1px solid #258;
+  border-top: 1px solid #258;
+  border-bottom: 1px solid #258;
+  line-height: 120%;
+}

@@ -10,6 +10,23 @@ console.log(
   $(window).on("load", function () {
     $(".loader").fadeOut();
     $(".page-loader").delay(600).fadeOut("slow");
+    if ($(".slider").length) {
+      $(".slider").bxSlider({
+        mode: "horizontal",
+        adaptiveHeight: false,
+        pager: true,
+        preventDefaultSwipeY: false,
+        easing: "ease-out",
+        auto: true,
+        infiniteLoop: true,
+        speed: 800,
+        pause: 4000,
+        pagerCustom: ".bx-pager",
+        controls: false,
+      });
+    } else {
+      return;
+    }
   });
 
   $(document).ready(function () {
@@ -912,4 +929,207 @@ console.log(
       });
     }
   });
+
+  function scroller() {
+    $(
+      "#mainMenu a[href^=#],#TOPBTN a[href^=#],#meganav a[href^=#],.mapinner a[href^=#],#meganav2 a[href^=#],#Menu a[href^=#],#SPMENUFOOT a[href^=#]"
+    ).click(function () {
+      // スクロールの速度
+      var speed = 600; // ミリ秒
+      // アンカーの値取得
+      var href = $(this).attr("href");
+      // 移動先を取得
+      var target = $(href == "#" || href == "" ? "html" : href);
+      // 移動先を数値で取得
+      var position = target.offset().top - 30;
+      //       position =  (target.get( 0 ).offsetTop)-30;
+
+      // スムーススクロール
+      $("body,html").animate({ scrollTop: position }, speed, "easeInOutQuad");
+      return false;
+    });
+
+    $(document).on("click", "#TOPBTN", function () {
+      $("body,html").animate(
+        {
+          scrollTop: 0,
+        },
+        500
+      );
+      return false;
+    });
+
+    $(document).on("click", "#logo", function () {
+      window.location.href = "/";
+      return false;
+    });
+
+    $("#SPMENU a[href^=#]").click(function () {
+      // スクロールの速度
+      var speed = 1000; // ミリ秒
+      // アンカーの値取得
+      var href = $(this).attr("href");
+      // 移動先を取得
+      var target = $(href == "#" || href == "" ? "html" : href);
+      // 移動先を数値で取得
+      var position = target.offset().top - 48;
+
+      $(".menu-trigger").toggleClass("active");
+      $("#SPMENU").toggleClass("active");
+      scrollStart($("html"));
+      scFLAG = false;
+
+      // スムーススクロール
+      $("body,html").animate({ scrollTop: position }, speed, "easeInOutCirc");
+      return false;
+    });
+  }
 })(jQuery);
+
+
+
+(function () {
+  const container = document.getElementById("newsBanner");
+  const content = document.getElementById("newsBannerContent");
+
+  if (!container || !content) return;
+
+  // 設定
+  const gap =
+    parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue("--gap")
+    ) || 48;
+  const baseSpeed =
+    parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--base-speed"
+      )
+    ) || 60; // px/s
+  const minFontRatio =
+    parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--min-font-ratio"
+      )
+    ) || 0.65;
+  const maxFontRatio =
+    parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--max-font-ratio"
+      )
+    ) || 0.95;
+
+  // 複製用ラッパーを作って中身をコピー（元のcontentは非表示にしない）
+  function setupLoop() {
+    // reset any previous duplicated node
+    const existing = container.querySelectorAll(
+      ".news-banner-content.duplicated"
+    );
+    existing.forEach((n) => n.remove());
+
+    // get widths
+    const containerW = container.clientWidth;
+    // ensure content is inline for measurement
+    content.style.position = "static";
+    content.style.visibility = "hidden";
+    content.style.display = "inline-flex";
+    content.style.transform = "none";
+
+    // measure single content width including gap (browser gives bounding box)
+    const contentRect = content.getBoundingClientRect();
+    let contentW = contentRect.width;
+
+    // restore visibility
+    content.style.visibility = "";
+    content.style.display = "";
+
+    // if content is too small, duplicate until >= containerW * 2 for seamless looping
+    let totalCopyW = contentW;
+    const wrapper = document.createElement("div");
+    wrapper.className = "news-banner-content duplicated";
+    wrapper.setAttribute("aria-hidden", "true");
+
+    // copy nodes until sum >= containerW * 2
+    while (totalCopyW < containerW * 2) {
+      // clone original children
+      const clone = content.cloneNode(true);
+      clone.style.display = "inline-flex";
+      clone.style.position = "static";
+      clone.style.visibility = "";
+      // append cloned children into wrapper (flatten one level)
+      Array.from(clone.children).forEach((ch) =>
+        wrapper.appendChild(ch.cloneNode(true))
+      );
+      totalCopyW += contentW;
+      // prevent infinite loop
+      if (wrapper.childElementCount > 500) break;
+    }
+
+    // append duplicated wrapper
+    container.appendChild(wrapper);
+
+    // now final measurement of combined block width (original + duplicated)
+    const firstRect = content.getBoundingClientRect();
+    const dupRect = wrapper.getBoundingClientRect();
+    const combinedWidth = firstRect.width + dupRect.width;
+
+    // compute scroll distance: negative value in px
+    const scrollDistance = `-${firstRect.width}px`;
+
+    // compute duration: distance (px) / speed (px/s)
+    // choose speed proportional to baseSpeed; slower -> smaller baseSpeed value
+    const distancePx = firstRect.width;
+    const duration = Math.max(8, distancePx / baseSpeed); // 最低8秒に制限（調整可）
+
+    // apply CSS variables and animation
+    // set CSS var for distance on container so that keyframes can use it
+    container.style.setProperty("--scroll-distance", `-${distancePx}px`);
+    container.style.setProperty("--scroll-duration", `${duration}s`);
+
+    // apply animation to both content blocks
+    const anim = `scroll-left ${duration}s linear infinite`;
+    content.style.animation = anim;
+    wrapper.style.animation = anim;
+
+    // adjust font-size to fit container height
+    adjustFontToHeight();
+  }
+
+  function adjustFontToHeight() {
+    const bannerHeight = container.clientHeight;
+    // use ratio so fonts don't exactly equal line-height; allow some padding
+    const ratio = Math.max(minFontRatio, Math.min(maxFontRatio, 0.85));
+    const fontSize = Math.floor(bannerHeight * ratio);
+    // apply to all items
+    const items = container.querySelectorAll(".font-alt");
+    items.forEach((it) => {
+      it.style.fontSize = fontSize + "px";
+      it.style.lineHeight = bannerHeight + "px";
+    });
+  }
+
+  // rebuild on resize
+  let resizeTimer = null;
+  function onResize() {
+    if (resizeTimer) clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      // remove previous animation styles to re-measure correctly
+      const all = container.querySelectorAll(".news-banner-content");
+      all.forEach((n) => {
+        n.style.animation = "";
+      });
+      setupLoop();
+    }, 120);
+  }
+
+  // initial setup
+  window.addEventListener("load", setupLoop);
+  window.addEventListener("resize", onResize);
+
+  // If container height changes via CSS, use ResizeObserver to adjust font-size + rebuild
+  if (window.ResizeObserver) {
+    const ro = new ResizeObserver(() => {
+      onResize();
+    });
+    ro.observe(container);
+  }
+})();
