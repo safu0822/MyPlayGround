@@ -1,0 +1,36 @@
+// Override before importing style to try a font; null preserves existing stacks.
+$font-test: null !default;
+
+// Sass omits null list items, preserving the original families and quoting.
+$font-body: $font-test, "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+$font-alt: $font-test, "Sawarabi Gothic", "Noto Sans JP", "Roboto Condensed", sans-serif;
+$font-serif: $font-test, Volkhov, "Times New Roman", sans-serif;
+$font-handwritten: $font-test, "Sawarabi Gothic", "yosugara", "armed-lemon", cursive;
+$font-armed-lemon: $font-test, "armed-lemon", "yosugara", cursive;
+$font-blog: $font-test, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+$font-counter: $font-test, Quicksand, sans-serif;
+$font-condensed: $font-test, "Roboto Condensed", sans-serif;
+
+// Icon stacks never participate in text-font trials. Preserve their quoting.
+$font-icon: FontAwesome;
+$font-icon-quoted: "FontAwesome";
+
+@font-face {
+	font-family: 'armed-lemon';
+	src: url('../fonts/ArmedLemon/ArmedLemon.TTF') format('truetype');
+}
+
+@font-face {
+	font-family: 'yosugara';
+	src: url('../fonts/yosugara/yosugaraver1_2.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: "Makinas-4-Flat";
+	src: url("../fonts/Makinas4/Makinas-4-Flat.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Makinas-4-Square";
+	src: url("../fonts/Makinas4/Makinas-4-Square.otf") format("opentype");
+}

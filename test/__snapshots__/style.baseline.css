@@ -1,20 +1,4 @@
 @charset "UTF-8";
-@font-face {
-  font-family: "armed-lemon";
-  src: url("../fonts/ArmedLemon/ArmedLemon.TTF") format("truetype");
-}
-@font-face {
-  font-family: "yosugara";
-  src: url("../fonts/yosugara/yosugaraver1_2.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Makinas-4-Flat";
-  src: url("../fonts/Makinas4/Makinas-4-Flat.otf") format("opentype");
-}
-@font-face {
-  font-family: "Makinas-4-Square";
-  src: url("../fonts/Makinas4/Makinas-4-Square.otf") format("opentype");
-}
 /*--------------------------------------------------------------
 	Common
 --------------------------------------------------------------*/
@@ -1363,6 +1347,14 @@ a,
 /*--------------------------------------------------------------
 	Typography
 --------------------------------------------------------------*/
+@font-face {
+  font-family: "armed-lemon";
+  src: url("../fonts/ArmedLemon/ArmedLemon.TTF") format("truetype");
+}
+@font-face {
+  font-family: "yosugara";
+  src: url("../fonts/yosugara/yosugaraver1_2.ttf") format("truetype");
+}
 a {
   color: #111;
 }
@@ -5592,5 +5584,3 @@ General Styles - Activity
     padding-bottom: 600px;
   }
 }
-
-/*# sourceMappingURL=style.css.map */

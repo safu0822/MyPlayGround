@@ -4,17 +4,39 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Build & Development
 
-There is no build pipeline. SCSS must be compiled manually using a tool like VS Code's Live Sass Compiler or the Sass CLI:
+SCSS is compiled with `sass` (pinned to 1.104.0 in `devDependencies`). Run `npm install` once, then:
 
 ```bash
 # Compile once
-sass assets/scss/style.scss assets/scss/style.css
+npm run build:css
 
 # Watch mode
-sass --watch assets/scss/style.scss:assets/scss/style.css
+npm run watch:css
 ```
 
+Do NOT upgrade the `sass` version casually — the font regression test compares compiled
+output byte-for-byte against a snapshot, and formatting changes between sass versions
+will break it.
+
 The compiled `style.css` and `style.css.map` are committed to the repository. After editing any `.scss` file, recompile and commit both the SCSS source and the compiled CSS together.
+
+## Tests
+
+```bash
+npm test
+```
+
+`test/fonts.test.mjs` (49 cases) guards the centralized font setup. It compiles the SCSS
+in-memory and asserts against the resulting CSS. Key protections:
+
+- **Regression**: with `$font-test: null`, the compiled CSS must match
+  `test/__snapshots__/style.baseline.css` byte-for-byte (excluding `@font-face` blocks).
+  Any accidental style change fails the build.
+- **Icon fonts**: the four `FontAwesome` declarations must never be polluted by `$font-test`.
+- **IE polyfill**: `font-family: 'object-fit: cover;'` in `_common.scss` is a hack, not a
+  font. It must survive untouched.
+
+Run the tests after any change to `assets/scss/`.
 
 ## Architecture Overview
 
@@ -45,8 +67,14 @@ Archive pages show 5 posts per page (set via `custom_posts_per_page` filter in `
 ### SCSS Organization
 
 All partials are in `assets/scss/` and imported by `style.scss`. Key files:
+- `_fonts.scss` — **Single source of truth for fonts.** All `@font-face` rules and font
+  stack variables live here. To change a font anywhere on the site, edit this file only.
+  Setting `$font-test` to a family name (e.g. `"Makinas-4-Flat"`) prepends it to every
+  text font stack at once, for trying out a typeface site-wide. `null` disables it.
+  Icon fonts (`$font-icon`) are deliberately excluded from `$font-test`.
 - `_common.scss` — Base resets, transitions, shared utilities
-- `_typography.scss` — Font families and heading styles (Google Fonts: Noto Sans JP, M PLUS 1p, Zen Kaku Gothic, Kosugi Maru)
+- `_typography.scss` — Heading styles and font utility classes (`.font-alt`, `.font-yosugara`, etc).
+  The font values themselves live in `_fonts.scss`; this file only references the variables.
 - `_media_querries.scss` — All responsive breakpoints
 - `_navbar.scss` / `_header.scss` — Navigation and page headers
 

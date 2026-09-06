@@ -25,11 +25,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Zen+Kaku+Gothic+Antique&display=swap"
-  rel="stylesheet">
 <link
-  href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Noto+Sans+JP:wght@100..900&family=Sawarabi+Gothic&family=Sawarabi+Mincho&family=Slackside+One&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Sawarabi+Gothic&display=swap"
   rel="stylesheet">
 <link href="<?php echo get_template_directory_uri(); ?>/assets/lib/animate.css/animate.css" rel="stylesheet">
 <link href="<?php echo get_template_directory_uri(); ?>/assets/lib/components-font-awesome/css/font-awesome.min.css"
