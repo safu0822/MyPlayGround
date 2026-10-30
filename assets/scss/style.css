@@ -1485,6 +1485,11 @@ blockquote {
   color: #111;
 }
 
+#about .module-subtitle p {
+  margin: 0;
+  letter-spacing: inherit;
+}
+
 .module-subtitle-simple {
   text-align: center;
   margin-bottom: 70px;
@@ -4778,6 +4783,9 @@ General Styles - Activity
 #access p {
   font-size: 15px;
 }
+#access p + p {
+  margin-top: 1.8em;
+}
 #access {
   padding: 50px 0px;
 }
@@ -4806,7 +4814,7 @@ General Styles - Activity
   font-size: 18px;
 }
 #question .qa-1 summary::before,
-#question .qa-1 p::before {
+#question .qa-1 .qa-answer::before {
   position: absolute;
   left: 1em;
   font-weight: 600;
@@ -4829,7 +4837,7 @@ General Styles - Activity
 #question .qa-1[open] summary::after {
   transform: rotate(225deg);
 }
-#question .qa-1 p {
+#question .qa-1 .qa-answer {
   position: relative;
   transform: translateY(-10px);
   opacity: 0;
@@ -4839,11 +4847,17 @@ General Styles - Activity
   transition: transform 0.5s, opacity 0.5s;
   font-size: 15px;
 }
-#question .qa-1[open] p {
+#question .qa-1 .qa-answer p {
+  margin: 0;
+}
+#question .qa-1 .qa-answer p + p {
+  margin-top: 1.8em;
+}
+#question .qa-1[open] .qa-answer {
   transform: none;
   opacity: 1;
 }
-#question .qa-1 p::before {
+#question .qa-1 .qa-answer::before {
   color: #ff8d8d;
   line-height: 1.2;
   content: "A";
@@ -5369,7 +5383,7 @@ General Styles - Activity
   .side-image-text {
     padding: 40px 20px;
   }
-  #question .qa-1 p {
+  #question .qa-1 .qa-answer {
     font-size: 11px;
   }
   .currency-point .point-catch p {

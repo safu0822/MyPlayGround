@@ -82,6 +82,13 @@ Partial names map directly to their template part: `_activity.scss` styles `temp
 
 Several SCSS partials exist for unused features from the base framework (`_shop_items.scss`, `_restaurant_menu.scss`, etc.) — these can be ignored.
 
+### Admin-Editable Content
+
+About, access and Q&A text are edited in wp-admin, not in the templates. Read them through
+`hatatate_get_content()` / `hatatate_get_image_url()` / `hatatate_get_qa_items()` in `inc/content.php`.
+When nothing is saved, the values in `inc/content-defaults.php` are shown, so production keeps working
+right after a theme upload. See `docs/specs/admin-editable-content.spec.md`.
+
 ### JavaScript
 
 Scripts are in `assets/js/` (custom) and `assets/lib/` (third-party, pre-bundled, committed to repo). There is no module bundler.

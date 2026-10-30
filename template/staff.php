@@ -18,7 +18,7 @@ if ( ! is_array( $members ) ) {
       <div class="col-sm-6 col-sm-offset-3">
         <h2 class="module-title-simple font-yosugara-large">スタッフ</h2>
         <div class="module-subtitle-simple font-yosugara">HATATATE MARINE SERVICEでは
-          経験豊かなスタップが皆様をお待ちしています！</div>
+          経験豊かなスタッフが皆様をお待ちしています！</div>
       </div>
     </div>
     <div class="row">

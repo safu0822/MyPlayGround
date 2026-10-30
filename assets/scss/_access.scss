@@ -8,6 +8,10 @@
     font-size: 15px;
   }
 
+  p+p {
+    margin-top: 1.8em;
+  }
+
   padding: 50px 0px;
 
 }
@@ -40,7 +44,7 @@
   }
 
   .qa-1 summary::before,
-  .qa-1 p::before {
+  .qa-1 .qa-answer::before {
     position: absolute;
     left: 1em;
     font-weight: 600;
@@ -67,7 +71,7 @@
     transform: rotate(225deg);
   }
 
-  .qa-1 p {
+  .qa-1 .qa-answer {
     position: relative;
     transform: translateY(-10px);
     opacity: 0;
@@ -76,14 +80,22 @@
     color: #333;
     transition: transform .5s, opacity .5s;
     font-size: 15px;
+
+    p {
+      margin: 0;
+    }
+
+    p+p {
+      margin-top: 1.8em;
+    }
   }
 
-  .qa-1[open] p {
+  .qa-1[open] .qa-answer {
     transform: none;
     opacity: 1;
   }
 
-  .qa-1 p::before {
+  .qa-1 .qa-answer::before {
     color: #ff8d8d;
     line-height: 1.2;
     content: "A";

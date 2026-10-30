@@ -1,5 +1,5 @@
 <section class="home-section home-parallax home-fade home-full-height bg-dark bg-dark-30" id="home"
-  data-background="<?php echo get_template_directory_uri(); ?>/assets/images/backgrounds/アクセス送迎背景.JPG">
+  data-background="<?php echo esc_url( hatatate_get_image_url( 'access_header_bg' ) ); ?>">
   <div class="titan-caption">
     <div class="caption-content">
       <div class="font-alt mb-30 titan-title-size-4">アクセス&送迎</div>

@@ -1,4 +1,6 @@
 <?php
+require_once get_template_directory() . '/inc/content.php';
+
 function twpp_enqueue_scripts() {
 
   /* WordPress標準のjQuery読込解除 */
