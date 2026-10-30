@@ -34,7 +34,7 @@ function hatatate_image_defaults() {
   return [
     'about_image' => 'assets/images/profile/DSC_7154.JPG',
     'access_map_image' => 'assets/images/access/345F7BE6-DC8D-4499-9B85-A7047CEF704A.jpg',
-    'access_transfer_image' => 'assets/images/access/乗り継ぎ.png',
+    'access_transfer_image' => 'assets/images/access/transfer.png',
     'access_header_bg' => 'assets/images/backgrounds/アクセス送迎背景.JPG',
     'access_section_bg' => 'assets/images/access/background.jpeg',
   ];
